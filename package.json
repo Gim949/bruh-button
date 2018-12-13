@@ -1,0 +1,20 @@
+{
+  "name": "bruh-button",
+  "version": "1.0.0",
+  "description": "le funny bruh",
+  "main": "main.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ParkerSaint/bruh-button.git"
+  },
+  "author": "Parker St. Pierre",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/ParkerSaint/bruh-button/issues"
+  },
+  "homepage": "https://github.com/ParkerSaint/bruh-button#readme",
+  "dependencies": {}
+}
