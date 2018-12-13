@@ -11,8 +11,17 @@
     <script src="main.js"></script>
 </head>
 <body>
-    <img id="bruh-button" onclick="onClick()" src="bruh-button.png">
-    <p>Total Clicks: <a id="total-clicks">0</a></p>
+    <div class="grid">
+        <div class="row justify-content-center">
+            <img draggable="false" id="bruh-button" onclick="onClick()" src="bruh-button.png">
+        </div>
+        <div class="row justify-content-center">
+            <p>Total Bruhs: <a id="total-clicks">0</a></p>
+        </div>
+        <div class="row justify-content-center">
+            <p>Bruhs Per Second: <a id="cps">0</a></p>
+        </div>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
 </body>
