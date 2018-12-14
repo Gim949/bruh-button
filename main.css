@@ -1,8 +1,8 @@
 #bruh-button {
-    padding-bottom: 3em;
+  padding-bottom: 3em;
 }
 
 #bruh-button:active {
-    opacity: .50;
-    -webkit-user-drag: none;
+  opacity: 0.5;
+  -webkit-user-drag: none;
 }

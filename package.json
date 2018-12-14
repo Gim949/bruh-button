@@ -16,5 +16,8 @@
     "url": "https://github.com/ParkerSaint/bruh-button/issues"
   },
   "homepage": "https://github.com/ParkerSaint/bruh-button#readme",
-  "dependencies": {}
+  "dependencies": {
+    "firebase": "^5.7.0"
+  },
+  "devDependencies": {}
 }
