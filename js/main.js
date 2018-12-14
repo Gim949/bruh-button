@@ -1,13 +1,12 @@
 //const db = require("./databaseManager");
 
 $(() => {
-
     let totalClicks;
     getCookie("totalClicks", cookie => {
-        totalClicks = cookie || ""; //If undefined, set to ""
+        totalClicks = cookie || 0; //If undefined, set to 0
     })
 
-    $("#total-clicks").innerHTML = totalClicks;
+    $("#total-clicks").text(totalClicks);
     let cps = $("#cps");
     let currentClicks = 0;
 
@@ -18,17 +17,18 @@ $(() => {
         bruhAudio.play();
         updateClicks();
     }
+    $("#bruh-button").click(onClick);
 
     function updateClicks() {
         currentClicks++;
         totalClicks++;
-        $("#total-clicks").innerHTML = totalClicks;
+        $("#total-clicks").text(totalClicks);
         document.cookie = "totalClicks=" + totalClicks;
     }
 
     function getCPS() {
         setTimeout(function () {
-            $("#cps").innerHTML = currentClicks;
+            $("#cps").text(currentClicks);
             currentClicks = 0;
             getCPS();
         }, 1000);
@@ -46,6 +46,6 @@ $(() => {
             return val.startsWith(cname);
         });
 
-        callback(result);
+        callback(result.toString().split("=")[1]);
     }
-})
+});
