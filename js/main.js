@@ -1,32 +1,31 @@
 $(() => {
-
     let totalClicks;
     getCookie("totalClicks", cookie => {
-        totalClicks = cookie || ""; //If undefined, set to ""
+        totalClicks = cookie || 0; //If undefined, set to 0
     })
 
-    $("#total-clicks").innerHTML = totalClicks;
+    $("#total-clicks").text(totalClicks);
     let cps = $("#cps");
     let currentClicks = 0;
 
-    const bruhAudio = new Audio("/resources/bruh.mp3");
-
     getCPS();
-    function onClick() {
-        bruhAudio.play();
+    $("#bruh-button").click(() => {
+        const origBruh = $("#bruh-audio");
+        const newBruh = origBruh.clone();
+        newBruh.get(0).play();
         updateClicks();
-    }
+    });
 
     function updateClicks() {
         currentClicks++;
         totalClicks++;
-        $("#total-clicks").innerHTML = totalClicks;
+        $("#total-clicks").text(totalClicks);
         document.cookie = "totalClicks=" + totalClicks;
     }
 
     function getCPS() {
         setTimeout(function () {
-            $("#cps").innerHTML = currentClicks;
+            $("#cps").text(currentClicks);
             currentClicks = 0;
             getCPS();
         }, 1000);
@@ -44,6 +43,6 @@ $(() => {
             return val.startsWith(cname);
         });
 
-        callback(result);
+        callback(result.toString().split("=")[1]);
     }
 });
