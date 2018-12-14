@@ -2,7 +2,7 @@ $(() => {
     let totalClicks;
     getCookie("totalClicks", cookie => {
         totalClicks = cookie || 0; //If undefined, set to 0
-    })
+    });
 
     $("#total-clicks").text(totalClicks);
     let cps = $("#cps");
@@ -24,7 +24,7 @@ $(() => {
     }
 
     function getCPS() {
-        setTimeout(function () {
+        setTimeout(function() {
             $("#cps").text(currentClicks);
             currentClicks = 0;
             getCPS();
