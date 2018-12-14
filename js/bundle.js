@@ -11,14 +11,13 @@ $(() => {
     let cps = $("#cps");
     let currentClicks = 0;
 
-    const bruhAudio = new Audio("/resources/bruh.mp3");
-
     getCPS();
-    function onClick() {
-        bruhAudio.play();
+    $("#bruh-button").click(() => {
+        const origBruh = $("#bruh-audio");
+        const newBruh = origBruh.clone();
+        newBruh.get(0).play();
         updateClicks();
-    }
-    $("#bruh-button").click(onClick);
+    });
 
     function updateClicks() {
         currentClicks++;
