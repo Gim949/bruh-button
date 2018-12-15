@@ -1,24 +1,20 @@
+const databaseManager = require("./database-manager");
+
 $(() => {
-    const databaseManager = require("./database-manager");
+
+    // Rework this, it's messy
     let test = databaseManager.test;
     test();
 
-    let totalClicks;
-    let cps;
-    let currentClicks;
-
+    let totalClicks, currentClicks = 0;
     getCookie("totalClicks", cookie => {
         totalClicks = cookie || 0; //If undefined, set to 0
     });
-
-    $("#total-clicks").text(totalClicks);
-
     getCPS();
 
     $("#bruh-button").click(() => {
-        const origBruh = $("#bruh-audio");
-        const newBruh = origBruh.clone();
-        newBruh.get(0).play();
+        const bruh = $("#bruh-audio").clone();
+        bruh.get(0).play();
         updateClicks();
     });
 
@@ -31,7 +27,7 @@ $(() => {
     }
 
     function getCPS() {
-        setTimeout(function() {
+        setTimeout(function () {
             $("#cps").text(currentClicks);
             currentClicks = 0;
             getCPS();
