@@ -1,14 +1,20 @@
 $(() => {
+    const databaseManager = require("./database-manager");
+    let test = databaseManager.test;
+    test();
+
     let totalClicks;
+    let cps;
+    let currentClicks;
+
     getCookie("totalClicks", cookie => {
         totalClicks = cookie || 0; //If undefined, set to 0
-    })
+    });
 
     $("#total-clicks").text(totalClicks);
-    let cps = $("#cps");
-    let currentClicks = 0;
 
     getCPS();
+
     $("#bruh-button").click(() => {
         const origBruh = $("#bruh-audio");
         const newBruh = origBruh.clone();
@@ -21,10 +27,11 @@ $(() => {
         totalClicks++;
         $("#total-clicks").text(totalClicks);
         document.cookie = "totalClicks=" + totalClicks;
+        document.getElementById("score-box").value = totalClicks;
     }
 
     function getCPS() {
-        setTimeout(function () {
+        setTimeout(function() {
             $("#cps").text(currentClicks);
             currentClicks = 0;
             getCPS();

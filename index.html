@@ -1,39 +1,93 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Bruh Button</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="external/css/bootstrap.min.css" />
+        <link
+            href="https://fonts.googleapis.com/css?family=Ubuntu"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            media="screen"
+            href="css/main.css"
+        />
+    </head>
 
-<head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Bruh Button</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="external/css/bootstrap.min.css" />
-  <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
-</head>
+    <body>
+        <div class="container jumbotron">
+            <div class="row justify-content-center">
+                <img
+                    draggable="false"
+                    id="bruh-button"
+                    src="/resources/bruh-button.png"
+                />
+            </div>
+            <div class="row justify-content-center">
+                <p>Total Bruhs: <a id="total-clicks">0</a></p>
+            </div>
 
-<body>
-  <div class="container jumbotron">
-    <div class="row justify-content-center">
-      <img draggable="false" id="bruh-button" src="/resources/bruh-button.png" />
-    </div>
-    <div class="row justify-content-center">
-      <p>Total Bruhs: <a id="total-clicks">0</a></p>
-    </div>
-    <div class="row justify-content-center">
-      <p>Bruhs Per Second: <a id="cps">0</a></p>
-    </div>
-    <div class="row justify-content-center">
-      <p>
-        Check out the repository
-        <a href="https://github.com/ParkerSaint/bruh-button">here</a>
-      </p>
-    </div>
-  </div>
-  <!-- BEGIN load audio -->
-  <audio id="bruh-audio" src="resources/bruh.mp3" preload="auto"></audio>
-  <!-- END load audio -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="external/js/bootstrap.bundle.min.js"></script>
-  <script src="js/bundle.js"></script>
-</body>
+            <div class="row justify-content-center">
+                <p>Bruhs Per Second: <a id="cps">0</a></p>
+            </div>
 
+            <div class="row justify-content-center">
+                <form id="submit-score">
+                    <input type="text" name="name" placeholder="Your name" />
+                    <input
+                        id="score-box"
+                        type="text"
+                        name="score"
+                        placeholder="Your score"
+                        readonly
+                    />
+                    <button>Add score</button>
+                </form>
+            </div>
+
+            <div class="row justify-content-center">
+                <ol id="leaderboard"></ol>
+            </div>
+
+            <div class="row justify-content-center">
+                <p>
+                    Check out the repository
+                    <a href="https://github.com/ParkerSaint/bruh-button"
+                        >here</a
+                    >
+                </p>
+            </div>
+        </div>
+
+        <!-- BEGIN load audio -->
+        <audio id="bruh-audio" src="resources/bruh.mp3" preload="auto"></audio>
+        <!-- END load audio -->
+
+        <!-- BEGIN firebase -->
+        <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-firestore.js"></script>
+        <script>
+            // Initialize Firebase
+            var config = {
+                apiKey: "AIzaSyBZSE7iUe-7mip9iZjzMeqxngUzJysPSwE",
+                authDomain: "bruh-button-94d2d.firebaseapp.com",
+                databaseURL: "https://bruh-button-94d2d.firebaseio.com",
+                projectId: "bruh-button-94d2d",
+                storageBucket: "bruh-button-94d2d.appspot.com",
+                messagingSenderId: "841075544320"
+            };
+            firebase.initializeApp(config);
+            const db = firebase.firestore();
+            db.settings({ timestampsInSnapshots: true });
+        </script>
+        <!-- END firebase -->
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="external/js/bootstrap.bundle.min.js"></script>
+        <script src="js/bundle.js"></script>
+    </body>
 </html>

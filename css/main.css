@@ -6,3 +6,9 @@
     opacity: 0.5;
     -webkit-user-drag: none;
 }
+
+body {
+    font-family: "Ubuntu", sans-serif;
+}
+
+
